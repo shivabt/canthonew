@@ -165,14 +165,7 @@ function smtpmailer($to, $from, $from_name, $subject, $body) {
 //
 function logout($name)
 {
-setcookie("name",$name,time()-86400);
-session_start(); 
-session_destroy();
-if(isset($_SERVER['HTTP_REFERER'])) {
- header('Location: '.$_SERVER['HTTP_REFERER']);  
-} else {
- header('Location: index.php');  
-}
+	setcookie("name",$name,time()-86400);
 }
 
 function kiemtra_login($name,$pw)
@@ -281,12 +274,10 @@ $image_info=getimagesize($_FILES["image"]["tmp_name"]);
 //echo $image_info[0];
 //echo $image_info[1];
 
-/*
 if ($image_info[0]>640 || $image_info[1]>480) {
     echo "Lỗi: Chiều rộng của ảnh lớn hơn 480 hoặc chiều dài lớn hơn 640.<br/>";
     $uploadOk = 0;
 }
-*/
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
 && $imageFileType != "gif" ) {
@@ -345,7 +336,6 @@ function set_gia($option)
 		case 199:
 			$min=10;
 			$max=1000;
-			$text="Hơn 10 triệu";
 		break;
 		case 9999:
 			$min=-1;
@@ -354,41 +344,6 @@ function set_gia($option)
 		break;
 	}
 return array ($min, $max, $text);
-}
-
-function set_gia2($min,$max)
-{
-	if($min=0 && $max=1)
-	{
-		return "Dưới 1 triệu";
-		break;
-	}
-	if($min=1 && $max=3)
-	{
-		return "Từ 1-3 triệu";
-		break;
-	}
-	if($min=3 && $max=5)
-	{
-		return "Từ 3-5 triệu";
-		break;
-	}
-	if($min=5 && $max=10)
-	{
-		return "Từ 5-10 triệu";
-		break;
-	}
-	if($min=10 && $max=1000)
-	{
-		return "Hơn 10 triệu";
-		break;
-	}
-	if($min=-1 && $max=-1)
-	{
-		return "Thỏa thuận";
-		break;
-	}
-	
 }
 
 function tb_dangtin_fail()

@@ -2,9 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<?php ?>
 <title>Cần Thơ New - Thông Tin Mua Bán, Việc Làm, Bất Động Sản của TP Cần Thơ</title>
-
 <link rel="stylesheet" href="style.css" />
 
 <link rel="shortcut icon" href="images/favicon.ico" />
@@ -95,14 +93,6 @@ $(function() {
     });
 });
 //
-
-    $(document).ready(function(){
-        var clientHeight = document.documentElement.clientHeight;
-        $('#wrapperHeight').height(clientHeight+'px');
-        var bodyHeight = clientHeight - $('#body_div').css("marginTop").replace('px', '') - $('#footer').outerHeight(true);
-        $('#body_div').height(bodyHeight+'px');
-    });
-
 </script>
 
 
@@ -119,7 +109,7 @@ $(function() {
     <div id="banner_head_1"><img src="images/ct_banner.jpg" /></div><!--BANNER HEAD 1-->
 	<div class="clear"></div><!--CLEAR-->
 
-<div id="menu" style="display:none;">   
+<div id="menu">   
 <!--                <div id='cssmenu'>
                 <ul >
                    <li class='active'><a href='#'>HOME</a></li>
@@ -146,7 +136,7 @@ $(function() {
 	</ul>
 
 </nav>
-            <!--<div id="search_bar"><input id="search_box" type="text" placeholder="Tìm kiếm"/><input id="btn_Search" type="submit" value=" " /></div><!--SEARCH BAR-->      
+            <!--<div id="search_bar"><input id="search_box" type="text" placeholder="Tìm kiếm"/><input id="btn_Search" type="submit" value=" " /></div><!--SEARCH BAR-->   -->             
     </div><!--MENU-->
 
     

@@ -277,7 +277,6 @@ else
 
 
 
-
 include("footer.php");
 
 ?>

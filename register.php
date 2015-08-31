@@ -2,10 +2,10 @@
 
 include("config.php");
 include("header.php");
-
+include("left.php");
 
 ?>
-<div style="height:580px;">
+
 <form id="id_form_dangky_tv" method="post" action="register_kq.php">
 
 <table id="table_dangky" >
@@ -176,7 +176,7 @@ Năm
 
   
 </form>
-</div><!--DIV TAO KHOANG CACH VUA-->            
+            
   
 <?php
 
