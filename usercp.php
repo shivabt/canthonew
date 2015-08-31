@@ -2,7 +2,6 @@
 include("config.php");
 include("header.php");
 ?>
-
 <?php
 
 echo '<table height="200" width="200">
