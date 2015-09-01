@@ -17,7 +17,8 @@ if(isset($_GET['a']) && isset($_POST['fname']))//Nhap tin
 <?php
 
 $id_rv=get_id('id_rv','tin_rao_vat');
-//echo $id_rv;
+//SHIVA ALIBABA
+
 $author_rv=$_COOKIE['name'];
 $date_rv=date("Y-m-d");
 $ex_date_rv=date("Y-m-d",strtotime($date_rv . "+30 day"));//Sau này quay lại chỉnh, có thể tùy chỉnh số ngày
