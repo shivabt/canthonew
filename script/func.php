@@ -39,6 +39,7 @@ function check_row($sql_set)
 
 function get_id($id_field,$field)
 {
+	
 	$last_id=get_single_value($id_field,$field);
 	if($last_id)
 	{
@@ -53,6 +54,7 @@ function get_id($id_field,$field)
 function get_single_value($field,$table)
 {
 	$sql_select="select $field from $table ORDER BY $field DESC LIMIT 1";
+	//echo $sql_select;
 	$set_select=sql_set($sql_select);
 	if(isset($set_select))
 	{
@@ -165,7 +167,14 @@ function smtpmailer($to, $from, $from_name, $subject, $body) {
 //
 function logout($name)
 {
-	setcookie("name",$name,time()-86400);
+setcookie("name",$name,time()-86400);
+session_start(); 
+session_destroy();
+if(isset($_SERVER['HTTP_REFERER'])) {
+ header('Location: '.$_SERVER['HTTP_REFERER']);  
+} else {
+ header('Location: index.php');  
+}
 }
 
 function kiemtra_login($name,$pw)
@@ -274,13 +283,15 @@ $image_info=getimagesize($_FILES["image"]["tmp_name"]);
 //echo $image_info[0];
 //echo $image_info[1];
 
+/*
 if ($image_info[0]>640 || $image_info[1]>480) {
     echo "Lỗi: Chiều rộng của ảnh lớn hơn 480 hoặc chiều dài lớn hơn 640.<br/>";
     $uploadOk = 0;
 }
+*/
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-&& $imageFileType != "gif" ) {
+&& $imageFileType != "gif" && $imageFileType != "JPG" && $imageFileType != "JPEG" && $imageFileType != "GIF" && $imageFileType != "PNG" && $imageFileType != "GIF" ) {
     echo "Lỗi: Chỉ hỗ trợ tải lên các định dạng ảnh JPG, PNG và GIF.<br/>";
     $uploadOk = 0;
 }
@@ -336,6 +347,7 @@ function set_gia($option)
 		case 199:
 			$min=10;
 			$max=1000;
+			$text="Hơn 10 triệu";
 		break;
 		case 9999:
 			$min=-1;
@@ -346,6 +358,41 @@ function set_gia($option)
 return array ($min, $max, $text);
 }
 
+function set_gia2($min,$max)
+{
+	if($min=0 && $max=1)
+	{
+		return "Dưới 1 triệu";
+		break;
+	}
+	if($min=1 && $max=3)
+	{
+		return "Từ 1-3 triệu";
+		break;
+	}
+	if($min=3 && $max=5)
+	{
+		return "Từ 3-5 triệu";
+		break;
+	}
+	if($min=5 && $max=10)
+	{
+		return "Từ 5-10 triệu";
+		break;
+	}
+	if($min=10 && $max=1000)
+	{
+		return "Hơn 10 triệu";
+		break;
+	}
+	if($min=-1 && $max=-1)
+	{
+		return "Thỏa thuận";
+		break;
+	}
+	
+}
+
 function tb_dangtin_fail()
 {
 	?>
@@ -354,4 +401,3 @@ function tb_dangtin_fail()
     <?php
 }
 ?>
-

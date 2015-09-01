@@ -9,13 +9,13 @@
 			$name=$_COOKIE['name'];
             ?>
             <div id="wraper" > 
-                    <h1 style="color:#06F;">Thành viên</h1> <br/><a>Xin chào</a><?php echo "<span style='font-weight:bold;font-size:15px;color:red;'> ".$name."</span> ";?><br/></a>
-                    <br />
-                    <a>Vào hồ sơ</a>
-                    <div class="clear"></div>
-                    <br />
-                    <a id="quenmk" onclick="location.href = 'logout.php?n=<?php echo $name; ?>'">Đăng xuất</a>
-            <div class="clear"></div> 
+                            <h1 style="color:#06F;">Thành viên</h1> <br/><a>Xin chào</a><?php echo "<span style='font-weight:bold;font-size:15px;color:red;'> ".$name."</span> ";?><br/></a>
+                            <br />
+                            <a href="usercp.php" id="dashboard">Bảng điều khiển</a>
+                            <div class="clear"></div>
+                            <br />
+                            <a id="quenmk" onclick="location.href = 'logout.php?n=<?php echo $name; ?>'">Đăng xuất</a>
+                    <div class="clear"></div> 
             
             </div><!--DIV WRAPPER LOGIN-->            
 			<?php
@@ -40,8 +40,5 @@
          }//Neu khong co cookie thi co box login
 		 
 		 ?>
-	        <div></div>
-            <div></div>
-            <div></div>
             
             </div><!--RIGHT-->

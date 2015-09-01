@@ -1,4 +1,4 @@
-	<?php
+<?php
 //session_start();
 include("config.php");
 include("header.php");
@@ -27,6 +27,7 @@ if($kq)
             <p><span style="font-weight:0;margin-left:-100px">Đăng nhập thành công...Bạn sẽ được chuyển về trang trước đó</span></p>
             <div id="progress_bar"></div>
     	</div>
+        </div><!--MID-->
 <?php
  setcookie("name",$name,time() + 86400);
  echo "<meta http-equiv='refresh' content='5;url=$url_hientai'>";
@@ -36,18 +37,15 @@ if($kq)
 	 ?>
      
           	<div id="thongbao_dangnhap_thanhcong">
-            <p style="font-weight:bold;color:red;margin-left:-100px;">ĐĂNG NHẬP THẤT BẠI... TỰ ĐỘNG CHUYỂN VỀ TRANG CHỦ</p>
-            <div id="progress_bar"></div>
+            <p style="font-weight:bold;color:red;margin-left:-100px;">ĐĂNG NHẬP THẤT BẠI... XIN ĐĂNG NHẬP LẠI</p>
 
     </div>
 
             
 <?php
- echo "<meta http-equiv='refresh' content='5;url=$url_hientai'>";
+include("right.php");
  }//ELSE KIEM TRA DANG NHAP
 }//NGAN NGUOI DUNG TRUY CAP TRUC TIEP
 include("footer.php");
 
 ?>   
-            
-            

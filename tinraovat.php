@@ -1,5 +1,4 @@
-@@ -1,91 +0,0 @@
-	<?php
+<?php
 
 include("config.php");
 include("header.php");

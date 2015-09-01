@@ -1,4 +1,4 @@
-	<?php
+<?php
 
 include("config.php");
 include("header.php");
@@ -15,8 +15,9 @@ if(isset($_GET['a']) && isset($_POST['fname']))//Nhap tin
         <div style="margin-left:150px;margin-top:50px;">
         <span style="font-size:15px;font-weight:bold;color:red;font-family:Verdana, Geneva, sans-serif;">
 <?php
-	
+
 $id_rv=get_id('id_rv','tin_rao_vat');
+//echo $id_rv;
 $author_rv=$_COOKIE['name'];
 $date_rv=date("Y-m-d");
 $ex_date_rv=date("Y-m-d",strtotime($date_rv . "+30 day"));//Sau này quay lại chỉnh, có thể tùy chỉnh số ngày
@@ -42,8 +43,8 @@ $price_range_name=$price_range[2];
 //echo $price_min_rv;
 //echo $price_max_rv;
 $pic1_rv="";
-$pic2_rv="";
-$pic3_rv="";
+//$pic2_rv="";
+//$pic3_rv="";
 $upanh=1;
 
 
@@ -62,7 +63,7 @@ if(isset($_FILES["image"]['name']) && !empty( $_FILES["image"]["name"]))
 	else
 	{
 		$upanh=0;
-		echo "<br/>ĐĂNG TIN RAO VẶT THẤT BẠI!<br/><br/>";	
+		echo "<br/>ĐĂNG TIN RAO VẶT THẤT BẠIzzz!<br/><br/>";	
 		echo "<a href='dangtin_raovat.php'>>>Trở lại<<</a>";	
 	}//ĐÓNG IF UP ẢNH THẤT BẠI
 }//dong ham up anh
@@ -76,7 +77,7 @@ $sql_insert_rv=
 		(id_rv,author_rv,date_rv,ex_date_rv,loai_rv,cat_rv,view_rv,title_rv,content_rv,pic1_rv,pic2_rv,pic3_rv,ip_rv,price_min_rv,price_max_rv)
 		values
 		('$id_rv','$author_rv','$date_rv','$ex_date_rv','$loai_rv','$cat_rv','$view_rv','$title_rv','$content_rv','$pic1_rv','$pic2_rv','$pic3_rv','$ip_rv','$price_min_rv','$price_max_rv');
-		;
+
 ";
 //echo $sql_insert_rv;
 $kq_insert_rv=sql_result($sql_insert_rv);
@@ -122,6 +123,7 @@ if($kq_insert_rv)
 		echo "</div>";
 //////////////////
 $sql_insert_duyet="insert into duyet_rv values('$id_rv','','$date_rv','pending')";
+//echo $sql_insert_duyet;
 $kq_insert_duyet=sql_result($sql_insert_duyet);
 
 	}
@@ -198,8 +200,9 @@ else
 				<div class="uphinh btn btn-primary">
                 	<span>Chọn ảnh</span>
 					<input id="uploadFile" type="file" name="image" class="img" />
+                    
 				</div>
-
+				<input id="uploadFile_remove" type="button" name="image" value="Xóa ảnh"/>
 				<!--<div class="uphinh btn btn-primary">
                 	<span>Chọn ảnh</span>
 					<input id="uploadFile2" type="file" name="image2" class="img"  />
@@ -277,6 +280,5 @@ else
 
 
 
-include("footer.php");
 
-?>
+include("footer.php");
